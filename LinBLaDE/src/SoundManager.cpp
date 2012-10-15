@@ -24,60 +24,49 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
 /*
- *  log.h
- *  Debugging macros
- *  Created on: Jul 30, 2012
- *      Author: kamyon
+ * @file SoundManager.cpp
+ * @author Ender Tekin
+ *  Created on: Oct 8, 2012
  */
 
-#ifndef ELOG_H_
-#define ELOG_H_
+#include "ski/Sound/SoundManager.h"
+#include "AlsaAccess.h"
 
-#ifdef __ANDROID__	//if building for android
+SoundManager::Parameters::Parameters(TUInt nC/*=2*/, TUInt aRate/*=16000*/, TUInt64 aPerSz/*=4096*/, TUInt nP/*=4*/):
+	nChannels(nC),
+	samplingRate(aRate),
+	periodSize(aPerSz),
+	nPeriods(nP),
+	bufferSize(0)
+{};
 
-#include <android/log.h>
+TUInt SoundManager::Parameters::frameSizeInBytes() const {return nChannels * sizeof(SoundManager::TAudioData); };
 
-const char APP_NAME[] = "SKI APP";
+TUInt64 SoundManager::Parameters::periodSizeInBytes() const { return periodSize * frameSizeInBytes(); };
 
-#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, APP_NAME, __VA_ARGS__)
-#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG  , APP_NAME, __VA_ARGS__)
-#define LOGI(...) __android_log_print(ANDROID_LOG_INFO   , APP_NAME, __VA_ARGS__)
-#define LOGW(...) __android_log_print(ANDROID_LOG_WARN   , APP_NAME, __VA_ARGS__)
-#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR  , APP_NAME, __VA_ARGS__)
+SoundManager::SoundManager(): soundMngr_(new AlsaAccess()) {};
 
-#else // __ANDROID__ not defined -> building for a pc system
+SoundManager::~SoundManager() {};
 
-#include <cstdio>
-#include <cstdarg>
+void SoundManager::open(SoundManager::Parameters &params, bool isSync) {soundMngr_->open(params, isSync); };
 
-#ifdef DEBUG
-#define LOGD(...) {std::fprintf(stderr, __VA_ARGS__);}
-#define LOGV(...) {std::fprintf(stdout, __VA_ARGS__);}
-#else
-#define LOGD(...) {;}
-#define LOGV(...) {;}
-#endif	//DEBUG_
+void SoundManager::close() {soundMngr_->close(); };
 
-#define LOGE(...) {std::fprintf(stderr, "ERROR: "); std::fprintf(stderr, __VA_ARGS__);}
-#define LOGW(...) {std::fprintf(stderr, "WARNING: "); std::fprintf(stderr, __VA_ARGS__);}
-#define LOG(...) {std::fprintf(stdout, __VA_ARGS__);}
+const SoundManager::Parameters* SoundManager::getParameters() const {return soundMngr_->getParameters(); };
 
-//Workaround for curses
-#ifdef CURSES
-extern "C"
-{
-#undef LOG
-#define LOG(...) {printw(__VA_ARGS__);}
-#undef LOGD
-#define LOGD(...) {printw(__VA_ARGS__);}
-#undef LOGV
-#define LOGV(...) {printw(__VA_ARGS__);}
-#undef LOGE
-#define LOGE(...) {printw(__VA_ARGS__);}
-}
-#endif //CURSES
+void SoundManager::speak(const std::string &aText) const {soundMngr_->speak(aText); };
 
-#endif //__ANDROID__
-#endif //ELOG_H_
+void SoundManager::play(const SoundManager::TAudioData* audio) const {soundMngr_->play(audio); };
+
+void SoundManager::playNow(const SoundManager::TAudioData* audio) const {soundMngr_->playNow(audio); };
+
+void SoundManager::pause() const {soundMngr_->pause(); };
+
+void SoundManager::resume() const {soundMngr_->resume(); };
+
+void SoundManager::stop() const {soundMngr_->stop(); };
+
+void SoundManager::stopNow() const {soundMngr_->stopNow(); };
+
+SoundManager::Status SoundManager::getStatus() const {return soundMngr_->getStatus(); };

@@ -35,7 +35,8 @@ ProductSearch* ProductSearch::create(Method method)
 		break;
 	case Directions_For_Me:
 		//searchMethod.set(new D4MSearch());
-		searchMethod = new D4MSearch();
+		//searchMethod = new D4MSearch();
+		LOGE("Requested method removed");
 		break;
 	default:
 		LOGE("Requested method not yet implemented\n");
@@ -114,7 +115,7 @@ bool ProductSearch::submitRequest(CURL* curl, std::string &page)
 	}
 
 	// Save the website to string
-	page.assign(htmlData.data, htmlData.data + htmlData.size);
+	page.assign((char*) htmlData.data, htmlData.size);
 	LOGD("Product data retrieved\n");
 	return true;
 }

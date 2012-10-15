@@ -38,25 +38,25 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: libBLaDE.so.0.8
+all: libBLaDE_opencvd.so.0.8
 
 # Tool invocations
-libBLaDE.so.0.8: $(OBJS) $(USER_OBJS)
+libBLaDE_opencvd.so.0.8: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -shared -Wl,-soname=libBLaDE.so.0 -o "libBLaDE.so.0.8" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -Wl,--no-as-needed `pkg-config --libs opencv` -shared -Wl,-soname=libBLaDE_opencvd.so.0 -o "libBLaDE_opencvd.so.0.8" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(LIBRARIES)$(CPP_DEPS)$(CXX_DEPS)$(C_UPPER_DEPS) libBLaDE.so.0.8
+	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(LIBRARIES)$(CPP_DEPS)$(CXX_DEPS)$(C_UPPER_DEPS) libBLaDE_opencvd.so.0.8
 	-@echo ' '
 
 post-build:
 	-@echo 'Copy library'
-	-../install.sh libBLaDE.so
+	-../install.sh libBLaDE_opencvd.so
 	-@echo ' '
 
 .PHONY: all clean dependents

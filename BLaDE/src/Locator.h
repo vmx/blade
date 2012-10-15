@@ -25,13 +25,13 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /**
- * @file
+ * @file Locator.h
  * Barcode Location Code.
  * @author Ender Tekin
  */
 
-#ifndef EBARCODELOCATOR_H_
-#define EBARCODELOCATOR_H_
+#ifndef BARCODE_LOCATOR_H_
+#define BARCODE_LOCATOR_H_
 
 #include <algorithm>
 #include <list>
@@ -464,4 +464,4 @@ private:
 
 };
 
-#endif //EBARCODELOCATOR_H_
+#endif //BARCODE_LOCATOR_H_

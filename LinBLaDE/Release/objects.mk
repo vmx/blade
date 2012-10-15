@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lBLaDE -lcurl -lAlsaAccess -lboost_program_options -lhtmlcxx
+LIBS := -lBLaDE_opencv -lasound -lcurl -lboost_program_options -lhtmlcxx
 

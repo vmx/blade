@@ -34,6 +34,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "Locator.h"
 #include "ski/math.h"
 #include "ski/log.h"
+#include <assert.h>
 
 BarcodeLocator::BarcodeLocator(const TMatrixUInt8 &img, const Options &opts/* Options()*/):
 	opts_(opts),

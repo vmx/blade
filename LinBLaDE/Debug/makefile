@@ -44,7 +44,7 @@ all: LinBLaDE
 LinBLaDE: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"/home/kamyon/Projects/BLaDE/lib" -Wl,-R/home/kamyon/Projects/BLaDE/lib -o "LinBLaDE" $(OBJS) $(USER_OBJS) $(LIBS) `pkg-config --libs opencv htmlcxx`
+	g++ -L"/home/kamyon/Projects/BLaDE_released/lib" -Wl,-R/home/kamyon/Projects/BLaDE_released/lib -o "LinBLaDE" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

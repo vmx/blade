@@ -63,7 +63,7 @@ ProductSearch::ProductList GoogleSearch::parseProductPage(const std::string &pag
 	}
 	return products;
 }
-
+///Pleace your API key here
 const std::string GoogleSearch::API_KEY = "";
 /** Search address */
 const std::string GoogleSearch::SEARCH_URL = "https://www.googleapis.com/shopping/search/v1/public/products?key=[KEY]&country=US&q=[BARCODE]&alt=json&fields=items/product(title,brand,description)";

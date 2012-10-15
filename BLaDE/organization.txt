@@ -1,8 +1,0 @@
-ski-common-headers: 	include/SKI/*.h
-ski-blade:	    	include/SKI/BLaDE/*.h
-			libs/SKI/BLaDE/*.so
-ski-blade-source:	all source files
-ski-blade-desktop:	desktop client source files (requires ski-blade and ski-common-headers)
-ski-blade-android:	android client source files
-
-consider: move alsa access to ski-common-headers?

@@ -38,25 +38,25 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: libBLaDEd.so.1.0
+all: libBLaDEd.so.0.8
 
 # Tool invocations
-libBLaDEd.so.1.0: $(OBJS) $(USER_OBJS)
+libBLaDEd.so.0.8: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -shared -Wl,-soname=libBLaDEd.so.1 -o "libBLaDEd.so.1.0" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -shared -Wl,-soname=libBLaDEd.so.0 -o "libBLaDEd.so.0.8" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(LIBRARIES)$(CPP_DEPS)$(CXX_DEPS)$(C_UPPER_DEPS) libBLaDEd.so.1.0
+	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(LIBRARIES)$(CPP_DEPS)$(CXX_DEPS)$(C_UPPER_DEPS) libBLaDEd.so.0.8
 	-@echo ' '
 
 post-build:
-	-@echo 'Copy libraries and public headers'
-	-cp libBLaDEd.so.1.0 /home/kamyon/Projects/BLaDE/lib; cp -r /home/kamyon/Projects/BLaDE/BLaDE/include/* /home/kamyon/Projects/BLaDE/include
+	-@echo 'Copy library'
+	-../install.sh libBLaDEd.so
 	-@echo ' '
 
 .PHONY: all clean dependents

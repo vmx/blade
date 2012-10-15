@@ -29,7 +29,7 @@
 								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.2117276198" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.1136849155" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1313208026" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${include_loc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${WorkspaceDirPath}/include&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.1132584857" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG_"/>
@@ -48,16 +48,16 @@
 							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} ${linker_flags}" id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.2088919372" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug"/>
 							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} ${linker_flags}" id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.2017120869" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
 								<option id="gnu.cpp.link.option.paths.1295870211" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="&quot;${lib_loc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${WorkspaceDirPath}/lib&quot;"/>
 								</option>
 								<option id="gnu.cpp.link.option.libs.928034913" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
-									<listOptionValue builtIn="false" value="BLaDEd"/>
+									<listOptionValue builtIn="false" value="BLaDE_opencvd"/>
+									<listOptionValue builtIn="false" value="asound"/>
 									<listOptionValue builtIn="false" value="curl"/>
-									<listOptionValue builtIn="false" value="AlsaAccessd"/>
 									<listOptionValue builtIn="false" value="boost_program_options"/>
 									<listOptionValue builtIn="false" value="htmlcxx"/>
 								</option>
-								<option id="gnu.cpp.link.option.flags.438978043" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-Wl,-R${lib_loc}" valueType="string"/>
+								<option id="gnu.cpp.link.option.flags.438978043" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-Wl,-R${WorkspaceDirPath}/lib" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1103546573" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -102,7 +102,7 @@
 								<option id="gnu.cpp.compiler.exe.release.option.optimization.level.495326176" name="Optimization Level" superClass="gnu.cpp.compiler.exe.release.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.release.option.debugging.level.1311928460" name="Debug Level" superClass="gnu.cpp.compiler.exe.release.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1633594939" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="${include_loc}"/>
+									<listOptionValue builtIn="false" value="&quot;${WorkspaceDirPath}/include&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.1617162751" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="NDEBUG"/>
@@ -120,16 +120,16 @@
 							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} ${linker_flags}" id="cdt.managedbuild.tool.gnu.c.linker.exe.release.1128257540" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release"/>
 							<tool command="g++" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} ${linker_flags}" id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.88915951" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
 								<option id="gnu.cpp.link.option.libs.244432377" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
-									<listOptionValue builtIn="false" value="BLaDE"/>
+									<listOptionValue builtIn="false" value="BLaDE_opencv"/>
+									<listOptionValue builtIn="false" value="asound"/>
 									<listOptionValue builtIn="false" value="curl"/>
-									<listOptionValue builtIn="false" value="AlsaAccess"/>
 									<listOptionValue builtIn="false" value="boost_program_options"/>
 									<listOptionValue builtIn="false" value="htmlcxx"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.832522562" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="&quot;${lib_loc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${WorkspaceDirPath}/lib&quot;"/>
 								</option>
-								<option id="gnu.cpp.link.option.flags.945163118" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-Wl,-R${lib_loc}" valueType="string"/>
+								<option id="gnu.cpp.link.option.flags.945163118" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-Wl,-R${WorkspaceDirPath}/lib" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1105011084" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
