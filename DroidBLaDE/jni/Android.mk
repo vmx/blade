@@ -10,4 +10,4 @@ LOCAL_LDLIBS := -llog
 LOCAL_ARM_MODE := arm
 LOCAL_SHARED_LIBRARIES := BLaDE
 include $(BUILD_SHARED_LIBRARY)
-include (LOCAL_PATH)/../../BLaDE/src/Android.mk
+include $(LOCAL_PATH)/../../BLaDE/src/Android.mk

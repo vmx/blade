@@ -30,14 +30,12 @@
 							<tool errorParsers="org.eclipse.cdt.core.GCCErrorParser" id="com.android.tool.compiler.g++.1507104501" name="Android G++" superClass="com.android.tool.compiler.g++">
 								<option id="gnu.cpp.compiler.option.include.paths.910521081" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/DroidBLaDE/jni}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/kamyon/Projects/BLaDE/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/DroidBLaDE/../include}&quot;"/>
 								</option>
 								<inputType id="com.android.tool.compiler.g++.input.380371487" superClass="com.android.tool.compiler.g++.input"/>
 							</tool>
 							<tool errorParsers="org.eclipse.cdt.core.GCCErrorParser" id="com.android.tool.compiler.c.953453176" name="Android GCC" superClass="com.android.tool.compiler.c">
-								<option id="gnu.c.compiler.option.include.paths.843186895" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="/home/kamyon/Projects/BLaDE/include"/>
-								</option>
+								<option id="gnu.c.compiler.option.include.paths.843186895" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath"/>
 								<inputType id="com.android.tool.compiler.c.input.571563784" superClass="com.android.tool.compiler.c.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.base.2080721314" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.base">

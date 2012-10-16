@@ -12,4 +12,5 @@
     <string name="bc_decoding_off">Barcode Decoding Off</string>
     <string name="bc_decoding_on">Barcode Decoding On</string>
     <string name="horiz_fb_on">Horizontal Feedback On</string>
+    <string name="google_api_key"></string>
 </resources>

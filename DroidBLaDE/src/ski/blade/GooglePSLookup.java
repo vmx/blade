@@ -42,10 +42,10 @@ import android.util.Log;
 
 public class GooglePSLookup implements UPCLookup.WebLookup {
 	private final String searchUrlBase = "https://www.googleapis.com/shopping/search/v1/public/products?key=[KEY]&country=US&q=[BARCODE]&alt=json&fields=items/product(title,brand,description)";
-	private final String googleApiKey = "";
+	private final String googleApiKey = "";	//TODO: should we read this from resources?
 	private final String TAG = "BLaDE Google Lookup";
 	private boolean isLookingUp_;
-	
+		
 	public String performLookup(String upc) {
 		Log.d(TAG, "Performing web request for UPC:" + upc);
 		String searchUrl = searchUrlBase.replace("[KEY]", googleApiKey).replace("[BARCODE]", upc);

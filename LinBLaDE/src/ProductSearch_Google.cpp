@@ -28,7 +28,6 @@ void GoogleSearch::prepareRequest(CURL* curl, const std::string &upc)
 	std::string url = SEARCH_URL;
 	url.replace(url.find("[KEY]"), 5, API_KEY);
 	url.replace(url.find("[BARCODE]"), 9, upc);
-	LOGD("Search url: %s\n", url.c_str());
 	/* URL that receives this POST */
 	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 }
