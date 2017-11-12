@@ -102,7 +102,8 @@ bool BarcodeEngine::process()
 		//Provide audio feedback
 		double sizeScore = calculateSizeScore(bc, input_.size());
 		double alignmentScore = calculateAlignmentScore(bc, input_.size());
-		audioFeedback_->play(sizeScore, alignmentScore);
+		if (isAudioFeedbackOn_)
+		  audioFeedback_->play(sizeScore, alignmentScore);
 	}
 	return isDecoded;
 }
